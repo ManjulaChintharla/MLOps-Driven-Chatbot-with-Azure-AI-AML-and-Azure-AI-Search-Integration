@@ -10,6 +10,8 @@ RESOURCE_GROUP="rg-contosobank-l${suffix}"
 RESOURCE_PROVIDER="Microsoft.MachineLearningServices"
 RESOURCE_PROVIDER1="Microsoft.PolicyInsights"
 RESOURCE_PROVIDER2="Microsoft.Cdn"
+RESOURCE_PROVIDER3="Microsoft.AlertsManagement"
+RESOURCE_PROVIDER4="Microsoft.Web"
 REGIONS=("eastus" "westus" "centralus" "northeurope" "westeurope")
 RANDOM_REGION=${REGIONS[$RANDOM % ${#REGIONS[@]}]}
 WORKSPACE_NAME="mlw-cb-l${suffix}"
@@ -23,6 +25,8 @@ echo "Register the Machine Learning resource providers:"
 az provider register --namespace $RESOURCE_PROVIDER
 az provider register --namespace $RESOURCE_PROVIDER1
 az provider register --namespace $RESOURCE_PROVIDER2
+az provider register --namespace $RESOURCE_PROVIDER3
+az provider register --namespace $RESOURCE_PROVIDER4
 
 # Create the resource group and workspace and set to default
 echo "Create a resource group and set as default:"
